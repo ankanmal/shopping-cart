@@ -15,7 +15,7 @@ function Navbar() {
               <img
                 className="h-8 md:h-10"
                 src="https://i.ibb.co/98pHdFq/2021-10-27-15h51-15.png"
-                alt=""
+                alt="Farm Cart"
               />
             </Link>
           </div>

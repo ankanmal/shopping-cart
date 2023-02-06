@@ -11,7 +11,7 @@ function ProductListing() {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 gap-4 m-5 sm:grid-cols-2 md:grid-cols-3">
       {products.map((product) => (
         <div
           key={product.id}
@@ -26,9 +26,9 @@ function ProductListing() {
             <h2 className="text-lg font-bold leading-tight text-gray-800">
               {product.name}
             </h2>
-            <p className="text-gray-600 text-base mt-1">${product.price}</p>
+            <p className="text-gray-600 text-base mt-1">{product.price}€</p>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4"
+              className="bg-yellow-400 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full mt-4"
               onClick={(e) => addItemsToCart(product)}
             >
               Add to Cart
