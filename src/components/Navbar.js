@@ -1,7 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import useCalculateTotal from "./utils/useCalculateTotal";
 
 function Navbar() {
+  const totalAmt = useCalculateTotal();
+  const cartLength = useSelector((state) => state.cart.length);
   return (
     <div>
       <header className="bg-white">
@@ -77,7 +81,7 @@ function Navbar() {
               <Link to="/cart">
                 <li className="ml-2 lg:ml-4 relative inline-block">
                   <div className="absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-bold px-1 py-0.5 rounded-sm">
-                    12
+                    {cartLength}
                   </div>
                   <svg
                     className="h-9 lg:h-10 p-2 text-gray-500 svg-inline--fa fa-shopping-cart fa-w-18 fa-9x"
@@ -101,7 +105,7 @@ function Navbar() {
           {/* shopping cart */}
           <div className="ml-4 hidden sm:flex flex-col font-bold">
             <span className="text-xs text-gray-400">Your Cart</span>
-            <span>$2,650,59</span>
+            <span>{totalAmt}€</span>
           </div>
         </div>
       </header>

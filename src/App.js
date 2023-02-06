@@ -3,12 +3,16 @@ import Navbar from "./components/Navbar";
 import ProductListing from "./components/ProductListing";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import ShoppingCart from "./components/ShoppingCart";
+import { Provider } from "react-redux";
+import store from "./components/store/store";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Outlet />
+      <Provider store={store}>
+        <Navbar />
+        <Outlet />
+      </Provider>
     </div>
   );
 }

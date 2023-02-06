@@ -1,44 +1,20 @@
 import React from "react";
-
-const products = [
-  {
-    name: "Product 1",
-    price: 19.99,
-    image: "/path/to/product1.jpg",
-  },
-  {
-    name: "Product 2",
-    price: 29.99,
-    image: "/path/to/product2.jpg",
-  },
-  {
-    name: "Product 3",
-    price: 39.99,
-    image: "/path/to/product3.jpg",
-  },
-  {
-    name: "Product 4",
-    price: 19.99,
-    image: "/path/to/product1.jpg",
-  },
-  {
-    name: "Product 5",
-    price: 29.99,
-    image: "/path/to/product2.jpg",
-  },
-  {
-    name: "Product 6",
-    price: 39.99,
-    image: "/path/to/product3.jpg",
-  },
-];
+import { useDispatch } from "react-redux";
+import { PRODUCTS } from "./config/config";
+import { addToCart } from "./slices/cartSlice";
 
 function ProductListing() {
+  const products = PRODUCTS;
+  const dispatch = useDispatch();
+  const addItemsToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
   return (
     <div className="grid grid-cols-3 gap-4">
       {products.map((product) => (
         <div
-          key={product.name}
+          key={product.id}
           className="col-span-1 bg-white rounded-lg shadow-lg overflow-hidden"
         >
           <img
@@ -51,7 +27,10 @@ function ProductListing() {
               {product.name}
             </h2>
             <p className="text-gray-600 text-base mt-1">${product.price}</p>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4"
+              onClick={(e) => addItemsToCart(product)}
+            >
               Add to Cart
             </button>
           </div>
