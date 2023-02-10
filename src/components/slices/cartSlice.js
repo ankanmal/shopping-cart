@@ -7,7 +7,7 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       //check is item already exist
       let found = 0;
-      state.map((x) => {
+      state.forEach((x) => {
         if (x.id === action.payload.id) {
           found = x;
         }
@@ -27,7 +27,7 @@ const cartSlice = createSlice({
     },
     addQty: (state, action) => {
       let found = 0;
-      state.find((x) => {
+      state.forEach((x) => {
         if (x.id === action.payload) {
           found = x;
         }
@@ -39,7 +39,7 @@ const cartSlice = createSlice({
     },
     removeQty: (state, action) => {
       let found = 0;
-      state.map((x) => {
+      state.forEach((x) => {
         if (x.id === action.payload) {
           found = x;
         }
