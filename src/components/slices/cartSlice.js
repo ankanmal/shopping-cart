@@ -23,21 +23,11 @@ const cartSlice = createSlice({
       }
     },
     removeFromCart: (state, action) => {
-      //found the item
-      let found = 0;
-      state.map((x) => {
-        if (x.id === action.payload) {
-          found = x;
-        }
-      });
-      if (found !== 0) {
-        console.log("here");
-        state.pop(found);
-      }
+      return state.filter((x) => x.id !== action.payload);
     },
     addQty: (state, action) => {
       let found = 0;
-      state.map((x) => {
+      state.find((x) => {
         if (x.id === action.payload) {
           found = x;
         }

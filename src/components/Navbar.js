@@ -5,6 +5,7 @@ import useCalculateTotal from "./utils/useCalculateTotal";
 
 function Navbar() {
   const totalAmt = useCalculateTotal();
+  const formattedAmt = `${totalAmt.toFixed(2)}`;
   const cartLength = useSelector((state) => state.cart.length);
   return (
     <div>
@@ -105,7 +106,7 @@ function Navbar() {
           {/* shopping cart */}
           <div className="ml-4 hidden sm:flex flex-col font-bold">
             <span className="text-xs text-gray-400">Your Cart</span>
-            <span>{totalAmt}€</span>
+            <span>{formattedAmt}€</span>
           </div>
         </div>
       </header>
