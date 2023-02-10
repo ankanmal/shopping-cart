@@ -66,13 +66,15 @@ function ShoppingCart() {
                       </svg>
                     </button>
                     {cartItems.map((x) => {
+                      let qty;
                       if (x.id === e.id) {
-                        return (
-                          <span className="flex items-center px-2 py-1 space-x-1">
-                            {x.qty}
-                          </span>
-                        );
+                        qty = x.qty;
                       }
+                      return (
+                        <span className="flex items-center px-2 py-1 space-x-1">
+                          {qty}
+                        </span>
+                      );
                     })}
                     <button
                       className="flex items-center px-2 py-1 pl-0 space-x-1"
